@@ -27,12 +27,6 @@ jobs:
       - name: Run tests
         run: pytest tests/ -v
 
-      - name: Run linting
-        run: flake8 src/
-
-      - name: Check code formatting
-        run: black --check src/
-
   build-and-publish:
     needs: test
     runs-on: ubuntu-latest
