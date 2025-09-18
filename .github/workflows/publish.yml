@@ -32,6 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     # Only publish on push to main/master, not on PRs
     if: github.event_name == 'push'
+    
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout code
@@ -58,5 +62,6 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
+          user: __token__
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           verbose: true
