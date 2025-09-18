@@ -1,0 +1,16 @@
+Welcome to Sample Package!
+
+This is a sample text file included with the package.
+It demonstrates how to include data files in your Python package.
+
+You can read this file using:
+
+import pkg_resources
+content = pkg_resources.resource_string('sample_package', 'data/welcome.txt').decode('utf-8')
+
+Or using the newer importlib.resources:
+
+from importlib import resources
+content = resources.read_text('sample_package.data', 'welcome.txt')
+
+This file can contain any text data that your package might need.

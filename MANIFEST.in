@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+recursive-include src/sample_package *.py
+recursive-include src/sample_package/data *
+prune tests/
+prune .git/
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store
