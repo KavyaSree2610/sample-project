@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sample-package-kkaitepalli"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A sample Python package for testing PyPI publishing"
 authors = [
     {name = "Your Name", email = "your.email@example.com"}
@@ -44,6 +44,9 @@ dev = [
 
 [project.scripts]
 sample-cli = "sample_package.cli:main"
+
+[tool.setuptools_scm]
+# This tells setuptools-scm to get version from git tags
 
 [tool.setuptools.packages.find]
 where = ["src"]
