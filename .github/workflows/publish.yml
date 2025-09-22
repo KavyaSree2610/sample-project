@@ -1,10 +1,8 @@
 name: Publish to Test PyPI
 
 on:
-  push:
-    branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
+  release:
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -31,7 +29,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     # Only publish on push to main/master, not on PRs
-    if: github.event_name == 'push'
+    if: github.event_name == 'release'
     
     permissions:
       id-token: write
